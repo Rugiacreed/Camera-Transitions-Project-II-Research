@@ -27,18 +27,20 @@ In these case we could use too a object or element to make the wipe, following t
 This transition is just how its named, it's a simple zoom to some direction to focus in new zone or element in the screen creating an entrance to a new scene. I’ve seen this used in a lot of maps to introduce a location and then what happens there but it can be done too for small elements and characters and this could give a lot more of drama to the scene but that could be considered more as a change of shot or point-of-view.
 
 
-## The power of camera transitions.
+## THE POWER OF TRANSITIONS.
 
 Moving from one moment to another and how you choose to do it will have an incredibly effect to the audience. And doing it right will help in crafting the intended experience for that audience. 
 
 This is the main reason from the point-of-view of a filmaker. If we’re a designer of a videogame we know that during all time our game is running in a determined capability, and when we make loads for an scene these capability will determine if the game freezes or runs slower, these transitions will make us easy to load a scene or level without the player knowing our game is doing so. So hiding these moments will increment the positively thinkning of the player who is in front of the screen.
 
+So starting thinking in our code, our objective will be do the change of scene and and the load of the scene while the middle of the transition, if we do it before the player will see that time the game holds loading everything and then will do the transition so its useless for our objective and if we do it later the transition same. 
+
 ## REFERENCES:
 
-https://pt.slideshare.net/ShelbyBrown1/camera-transitions-and-edits/5
-https://www.youtube.com/watch?v=fKgvno6k-og
-https://en.wikipedia.org/wiki/Film_transition
-https://news.avclub.com/edgar-wright-s-scott-pilgrim-is-a-master-class-in-scene-1798253073
+- https://pt.slideshare.net/ShelbyBrown1/camera-transitions-and-edits/5
+- https://www.youtube.com/watch?v=fKgvno6k-og
+- https://en.wikipedia.org/wiki/Film_transition
+- https://news.avclub.com/edgar-wright-s-scott-pilgrim-is-a-master-class-in-scene-1798253073
 
 
 
