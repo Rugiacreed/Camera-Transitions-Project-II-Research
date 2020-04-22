@@ -1,0 +1,94 @@
+﻿  Animation.cpp
+  Building.cpp
+  CombatUnit.cpp
+  Console.cpp
+  EntityManager.cpp
+  HealthSystem.cpp
+  CurrencySystem.cpp
+  j1Fonts.cpp
+  j1Gui.cpp
+j1Gui.cpp(341,38): warning C4018: '>': no coinciden signed/unsigned
+j1Gui.cpp(348,38): warning C4018: '>': no coinciden signed/unsigned
+j1Gui.cpp(489,30): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+j1Gui.cpp(550,43): warning C4244: '=': conversión de 'TYPE' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+          and
+          [
+              TYPE=float
+          ]
+j1Gui.cpp(551,43): warning C4244: '=': conversión de 'TYPE' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+          and
+          [
+              TYPE=float
+          ]
+j1Gui.cpp(782,17): warning C4018: '<': no coinciden signed/unsigned
+  j1Main.cpp
+  j1App.cpp
+j1App.cpp(220,24): warning C4477: 'sprintf_s' : la cadena de formato '%lu' requiere un argumento de tipo 'unsigned long', pero el argumento variádico 6 tiene el tipo 'uint64'
+j1App.cpp(220,24): message : considere el uso de ' %llu' en la cadena de formato
+j1App.cpp(220,24): message : considere el uso de ' %I64u' en la cadena de formato
+  j1Audio.cpp
+  j1Input.cpp
+  j1Map.cpp
+j1Map.cpp(127,19): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+j1Map.cpp(128,19): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+  j1Pathfinding.cpp
+C:\Users\Miquel\Documents\GitHub\Mythology-Parade\Mythology_Parade_Engine\Core\p2Point.h(114,24): warning C4244: 'argumento': conversión de 'TYPE' a 'float'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\Miquel\Documents\GitHub\Mythology-Parade\Mythology_Parade_Engine\Core\p2Point.h(110): message : al compilar la función del miembro clase plantilla "TYPE p2Point<TYPE>::DistanceTo(const p2Point<TYPE> &) const"
+          with
+          [
+              TYPE=int
+          ]
+j1Pathfinding.cpp(167): message : Vea la referencia a la creación de una instancia de la función plantilla "TYPE p2Point<TYPE>::DistanceTo(const p2Point<TYPE> &) const" que se está compilando
+          with
+          [
+              TYPE=int
+          ]
+C:\Users\Miquel\Documents\GitHub\Mythology-Parade\Mythology_Parade_Engine\Core\j1PathFinding.h(83): message : Vea la referencia a la creación de una instancia de clase plantilla "p2Point<int>" que se está compilando
+C:\Users\Miquel\Documents\GitHub\Mythology-Parade\Mythology_Parade_Engine\Core\p2Point.h(114,15): warning C4244: 'return': conversión de 'float' a 'TYPE'; posible pérdida de datos
+          with
+          [
+              TYPE=int
+          ]
+  j1PerfTimer.cpp
+  LevelSystem.cpp
+  Player.cpp
+  QuadTree.cpp
+  j1Scene.cpp
+j1Scene.cpp(142,47): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+j1Scene.cpp(145,47): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+j1Scene.cpp(148,47): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
+j1Scene.cpp(151,47): warning C4244: '-=': conversión de 'float' a 'int'; posible pérdida de datos
+  Compilando...
+  j1Timer.cpp
+  p2Log.cpp
+  j1Render.cpp
+  j1Textures.cpp
+  j1Window.cpp
+  pugixml.cpp
+  j1TitleScene.cpp
+  Unit.cpp
+  Generando código
+  Previous IPDB not found, fall back to full compilation.
+  All 1646 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Generación de código finalizada
+  Mythology_Parade.vcxproj -> C:\Users\Miquel\Documents\GitHub\Mythology-Parade\Mythology_Parade_Engine\Release\Mythology_Parade.exe
