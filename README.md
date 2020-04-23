@@ -45,6 +45,8 @@ This transition is just how its named, it's a simple zoom to some direction to f
 
 ![Pan and zoom](https://thumbs.gfycat.com/FlashyMintyIrishterrier-size_restricted.gif)
 
+The power of transmition that this transition have is heavier than the others, but its more difficult to use because is not that easy to load the next scene at the same time you do the movement of the camera, so normally you combine the zoom with another transition or in big games the loading screen.
+
 ## The power of camera transitions.
 
 Moving from one moment to another and how you choose to do it will have an incredibly effect to the audience. And doing it right will help in crafting the intended experience for that audience. 
