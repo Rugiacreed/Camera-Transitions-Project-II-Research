@@ -30,7 +30,7 @@ bool j1Scene2::Start()
 bool j1Scene2::PostUpdate()
 {
 	if (App->input->GetKey(SDL_SCANCODE_1) == KEY_DOWN) {
-		App->transitions->FadeToWhite((j1Module*)App->scene2, (j1Module*)App->scene1, 2);
+		App->transitions->Transition(which_animation::fade_to_white, (j1Module*)App->scene2, (j1Module*)App->scene1, 2);
 	}
 
 

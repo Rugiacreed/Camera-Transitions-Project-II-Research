@@ -2,6 +2,7 @@
 #define __MODULEFADETOBLACK_H__
 
 #include "j1Module.h"
+#include "j1Timer.h"
 #include "SDL\include\SDL_rect.h"
 
 enum which_animation {
@@ -25,23 +26,26 @@ public:
 	enum fade_step
 	{
 		none,
-		fade_to_black,
-		fade_from_black
+		entering,
+		exiting
 	} current_step = fade_step::none;
 
-	bool FadeToBlack(j1Module* module_offp, j1Module* module_onp, float time = 2);
-	bool FadeToWhite(j1Module* module_offp, j1Module* module_onp, float time = 2);
+	bool Transition(which_animation type, j1Module* module_offp, j1Module* module_onp, float time = 2);
+	float LerpValue(float percent, float start, float end);
+	
 
 private:
 	which_animation w_anim=which_animation::none;
 
 	j1Module* module_on = nullptr;
 	j1Module* module_off = nullptr;
-	bool changing_to_scene = false;
-
-	Uint32 start_time = 0;
-	Uint32 total_time = 0;
+	float percent = 0;
+	float total_time = 0;
+	j1Timer timer;
 	SDL_Rect screen;
+	SDL_Rect WipeRect;
+
+
 };
 
 #endif //__MODULEFADETOBLACK_H__
