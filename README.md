@@ -19,15 +19,23 @@ Fade, Cross Fade, Wipe and Pan and Zoom, these are some of the most used scene t
 ### Fade:
 This simple transition makes the scene gradually fade turning it slowly in a color or to a text slide. This type of transition is slow and creates tension between scenes, for this reasons its useful for transitions between important scenes like the first scenes of a videogame, main menus or at exiting it.
 
+![Fade to black stages](http://write.flossmanuals.net/video-editing-using-kdenlive/introduction-to-video-effects/static/usingusing_effetcs_9.png)
+
 ### Cross Fade:
 This works similar as the last one but the first scene does not fade to a color or text slide, this one starts fading out at the same time the next scene starts fading in so we combine the fade of the two scenes at the same time. This works faster than a simple fade so i could be useful for pace the change between scenes.
+
+![Cross fade example](http://2.bp.blogspot.com/-Xn96T7zDMGI/TvtQL6S4faI/AAAAAAAAABY/j_bGFSypMgs/s320/IC368459.png)
 
 ### Wipe:
 To make this one clear, it works as cleaning a coating of dust in a image. The dust would be the first scene and the next scene is the image you are cleaning. So at the same time you clean the image and you’re removing the dust(first scene) you can see part of the image(next scene). This gives freedom to the editor because it can be done in a lot of differents ways. It uses to be slow(although you can modify it velocity) so gives some time to the public to think about what have happened in the last scene while you are introducing a new one. The freedom that it gives allows the user to give to it an emotional charge to it depending how you do the wipe.
 In these case we could use too a object or element to make the wipe, following the metaphor of cleaning the image these element would be the cloth we’re using to clean the dust and it will give a natural sensation to the scene.
 
+![Wipe example](http://speedvr.co.uk/wp-content/uploads/2015/12/VR-linear-transitions-300x169.jpg)
+
 ### Pan and Zoom:
 This transition is just how its named, it's a simple zoom to some direction to focus in new zone or element in the screen creating an entrance to a new scene. I’ve seen this used in a lot of maps to introduce a location and then what happens there but it can be done too for small elements and characters and this could give a lot more of drama to the scene but that could be considered more as a change of shot or point-of-view.
+
+![Pan and zoom example](https://i.ytimg.com/vi/4z21NEC5uZQ/hqdefault.jpg)
 
 ## The power of camera transitions.
 
@@ -39,7 +47,7 @@ So starting thinking in our code, our objective will be do the change of scene a
 
 ## REFERENCES:
 
-https://pt.slideshare.net/ShelbyBrown1/camera-transitions-and-edits/5
-https://www.youtube.com/watch?v=fKgvno6k-og
-https://en.wikipedia.org/wiki/Film_transition
-https://news.avclub.com/edgar-wright-s-scott-pilgrim-is-a-master-class-in-scene-1798253073
+- https://pt.slideshare.net/ShelbyBrown1/camera-transitions-and-edits/5
+- https://www.youtube.com/watch?v=fKgvno6k-og
+- https://en.wikipedia.org/wiki/Film_transition
+- https://news.avclub.com/edgar-wright-s-scott-pilgrim-is-a-master-class-in-scene-1798253073
