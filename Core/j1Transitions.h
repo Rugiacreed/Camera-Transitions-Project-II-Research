@@ -9,7 +9,9 @@ enum which_animation {
 	none,
 	fade_to_black,
 	fade_to_white,
-	wipe
+	wipe,
+	zoom,
+	lerp
 };
 
 class j1Transitions : public j1Module
@@ -30,8 +32,9 @@ public:
 		exiting
 	} current_step = fade_step::none;
 
-	bool Transition(which_animation type, j1Module* module_offp, j1Module* module_onp, float time = 2);
+	bool Transition(which_animation type, j1Module* module_offp, j1Module* module_onp, float time = 2, float target_scalep = 2);
 	float LerpValue(float percent, float start, float end);
+	void SetTargetScale(int target_scalep);
 	
 
 private:
@@ -44,6 +47,18 @@ private:
 	j1Timer timer;
 	SDL_Rect screen;
 	SDL_Rect WipeRect;
+	
+	//for the zoom transition
+	int start_width;
+	int start_height;
+	int final_width;
+	int final_height;
+	int current_width;
+	int current_height;
+	float current_scale = 1;
+	float target_scale;
+	float normal_scale = 1;
+	float percent2 = 0;
 
 
 };
