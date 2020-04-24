@@ -24,7 +24,7 @@ j1Scene1::~j1Scene1()
 bool j1Scene1::Start()
 {
 	App->scene2->active = false;
-	debug_tex = App->tex->Load("assets/Naruto.jpeg");
+	debug_tex = App->tex->Load("assets/Destiny.jpg");
 	return true;
 }
 

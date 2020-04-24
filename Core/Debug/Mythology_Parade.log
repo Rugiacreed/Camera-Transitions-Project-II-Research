@@ -1,16 +1,2 @@
-﻿  j1Transitions.cpp
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(78,53): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(84,22): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(96,23): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(108,56): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(108,43): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(109,58): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(109,44): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(114,35): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(115,35): warning C4244: '+=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(119,21): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(120,20): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(157,39): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(158,40): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Core\j1Transitions.cpp(176,17): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
+﻿  j1Scene1.cpp
   Mythology_Parade.vcxproj -> C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Debug\Mythology_Parade.exe

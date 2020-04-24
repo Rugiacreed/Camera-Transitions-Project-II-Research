@@ -59,6 +59,7 @@ private:
 	float target_scale;
 	float normal_scale = 1;
 	float percent2 = 0;
+	
 
 
 };

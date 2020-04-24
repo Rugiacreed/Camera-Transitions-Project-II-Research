@@ -15,7 +15,7 @@
 j1Transitions::j1Transitions()
 {
 	screen = { 0, 0, 1280,720 };
-	WipeRect = { 0, 0, 1280,720 };
+	WipeRect = { -1280, 0, 1280,720 };
 }
 
 j1Transitions::~j1Transitions()
@@ -44,8 +44,8 @@ bool j1Transitions::PostUpdate()
 		{
 			module_off->Disable();
 			module_on->Enable();
-
-			total_time += total_time;
+			
+			timer.Start();
 			current_step = fade_step::exiting;
 		}
 	} break;
@@ -67,19 +67,18 @@ bool j1Transitions::PostUpdate()
 		break;
 
 	case(which_animation::fade_to_white):
-		// Finally render the black square with alpha on the screen
+		// Finally render the white square with alpha on the screen
 		SDL_SetRenderDrawColor(App->render->renderer, 255, 255, 255, (Uint8)(normalized * 255.0f));
 		SDL_RenderFillRect(App->render->renderer, &screen);
 		break;
 
 	case (which_animation::wipe):
 		if (current_step == fade_step::entering) {
-			percent = timer.ReadSec() * (1 / total_time);
+			percent = timer.ReadSec() * (1 / (total_time));
 			float normalized_x_position = LerpValue(percent, -(int)App->win->GetWidth(), 0);
 
 			if (normalized_x_position >= 0) {
 				WipeRect.x = 0;
-				percent = 0;
 			}
 			else WipeRect.x = normalized_x_position;
 			
@@ -88,12 +87,11 @@ bool j1Transitions::PostUpdate()
 		else if (current_step== fade_step::exiting)
 		{
 			percent = timer.ReadSec() * (1 / total_time);
-			float normalized_x_position = LerpValue(percent, 0, -1280);
+			float normalized_x_position2 = LerpValue(percent, 0, -1280);
 
-			if (normalized_x_position <= -1280) {
+			if (normalized_x_position2 <= -1280) {
 				WipeRect.x = -1280;
-				percent = 0;
-			}else WipeRect.x = normalized_x_position;
+			}else WipeRect.x = normalized_x_position2;
 		}
 		SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, 255);
 		SDL_RenderFillRect(App->render->renderer, &WipeRect);
@@ -149,8 +147,6 @@ bool j1Transitions::Transition(which_animation type, j1Module* module_offp, j1Mo
 		timer.Start();
 		
 		//for zoom
-		percent2 = 0;
-		percent = 0;
 		target_scale = target_scalep;
 		start_width = App->render->camera.w;
 		start_height = App->render->camera.h;
