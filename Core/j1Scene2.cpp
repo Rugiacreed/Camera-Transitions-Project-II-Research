@@ -22,7 +22,7 @@ j1Scene2::~j1Scene2()
 // Called before the first frame
 bool j1Scene2::Start()
 {
-	debug_tex = App->tex->Load("assets/Sasuke.jpg");
+	debug_tex = App->tex->Load("assets/Destiny2.jpg");
 	return true;
 }
 
