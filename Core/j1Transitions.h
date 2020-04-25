@@ -11,7 +11,7 @@ enum which_animation {
 	fade_to_white,
 	wipe,
 	zoom,
-	lerp
+	curtain
 };
 
 class j1Transitions : public j1Module
@@ -47,6 +47,10 @@ private:
 	j1Timer timer;
 	SDL_Rect screen;
 	SDL_Rect WipeRect;
+	SDL_Rect CurtainRect;
+	SDL_Rect CurtainRect2;
+
+	
 	
 	//for the zoom transition
 	int start_width;
@@ -59,7 +63,7 @@ private:
 	float target_scale;
 	float normal_scale = 1;
 	float percent2 = 0;
-	
+	float percent3 = 0;
 
 
 };

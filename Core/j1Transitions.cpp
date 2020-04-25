@@ -16,6 +16,8 @@ j1Transitions::j1Transitions()
 {
 	screen = { 0, 0, 1280,720 };
 	WipeRect = { -1280, 0, 1280,720 };
+	
+	
 }
 
 j1Transitions::~j1Transitions()
@@ -25,6 +27,8 @@ j1Transitions::~j1Transitions()
 bool j1Transitions::Start()
 {
 	SDL_SetRenderDrawBlendMode(App->render->renderer, SDL_BLENDMODE_BLEND);
+	CurtainRect = { -(int)App->win->GetWidth() / 2, 0, (int)App->win->GetWidth() / 2,720 };
+	CurtainRect2 = { (int)App->win->GetWidth(), 0, (int)App->win->GetWidth() / 2,720 };
 	return true;
 }
 
@@ -81,7 +85,7 @@ bool j1Transitions::PostUpdate()
 				WipeRect.x = 0;
 			}
 			else WipeRect.x = normalized_x_position;
-			
+
 			
 		}
 		else if (current_step== fade_step::exiting)
@@ -123,6 +127,48 @@ bool j1Transitions::PostUpdate()
 			
 		}
 		break;
+
+	case (which_animation::curtain):
+		if (current_step == fade_step::entering) {
+			percent = timer.ReadSec() * (1 / (total_time));
+			float normalized_x_positioncurtain1 = LerpValue(percent, -(int)App->win->GetWidth() / 2, 0);
+
+			if (normalized_x_positioncurtain1 >= 0) {
+				CurtainRect.x = 0;
+			}
+			else CurtainRect.x = normalized_x_positioncurtain1;
+
+			float normalized_x_positioncurtain2 = LerpValue(percent, (int)App->win->GetWidth(), (int)App->win->GetWidth() / 2);
+
+			if (normalized_x_positioncurtain2 <= (int)App->win->GetWidth() / 2) {
+				CurtainRect2.x = (int)App->win->GetWidth() / 2;
+			}
+			else CurtainRect2.x = normalized_x_positioncurtain2;
+		}
+		else if (current_step == fade_step::exiting)
+		{
+			percent = timer.ReadSec() * (1 / (total_time));
+			float normalized_x_positioncurtain1 = LerpValue(percent, 0, -(int)App->win->GetWidth() / 2);
+
+			if (normalized_x_positioncurtain1 <= -(int)App->win->GetWidth() / 2) {
+				CurtainRect.x = -(int)App->win->GetWidth() / 2;
+			}
+			else CurtainRect.x = normalized_x_positioncurtain1;
+
+			float normalized_x_positioncurtain2 = LerpValue(percent, (int)App->win->GetWidth() / 2, (int)App->win->GetWidth());
+
+			if (normalized_x_positioncurtain2 >= (int)App->win->GetWidth()) {
+				CurtainRect2.x = (int)App->win->GetWidth();
+			}
+			else CurtainRect2.x = normalized_x_positioncurtain2;
+		}
+		SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, 255);
+		SDL_RenderFillRect(App->render->renderer, &CurtainRect);
+
+		SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, 255);
+		SDL_RenderFillRect(App->render->renderer, &CurtainRect2);
+		break;
+	
 
 	}
 
