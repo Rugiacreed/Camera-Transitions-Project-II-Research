@@ -51,7 +51,7 @@ The power of transmition that this transition have is heavier than the others, b
 
 Moving from one moment to another and how you choose to do it will have an incredibly effect to the audience. And doing it right will help in crafting the intended experience for that audience. 
 
-This is the main reason from the point-of-view of a filmaker. If we’re a designer of a videogame we know that during all time our game is running in a determined capability, and when we make loads for an scene these capability will determine if the game freezes or runs slower, these transitions will make us easy to load a scene or level without the player knowing our game is doing so. So hiding these moments will increment the positively thinkning of the player who is in front of the screen.
+This is the main reason from the point-of-view of a filmaker. If we’re a designer of a videogame we know that during all time our game is running in a determined capability, and when we make loads for an scene these capability will determine if the game freezes or runs slower, these transitions will make us easy to load a scene or level without the player knowing our game is doing so. So hiding these moments will increment the positively thinkning of the player who is in front of the screen. In most of the games where change to a level or scene takes a lot of time are used the loading scenes, these are done between transitions indicating the player that the level or scene is loading.
 
 So starting thinking in our code, our objective will be do the change of scene and and the load of the scene while the middle of the transition, if we do it before the player will see that time the game holds loading everything and then will do the transition so its useless for our objective and if we do it later the transition same. 
 
@@ -65,23 +65,23 @@ So starting thinking in our code, our objective will be do the change of scene a
 
 ## CODE
 
-For the code i decided to do it the most simple as possible, keeping it at the same time with high efficiency. For that i’ve used 3 main modules for the process of creation of the transitions in my project. These are two scenes named Scene1 and Scene2 and the transition module that will create the transitions at the same times it acts as a manager of them.
+For the code i decided to do it the most simple as possible, keeping it at the same time with high efficiency. For that i’ve used 1 main module for the process of creation of the transitions in my project. Then there are two scenes named Scene1 and Scene2 that will call the function transition and the transition module that will create the transitions at the same times it acts as a manager of them.
 
 ### Transition.h
 
 In this module we will create two main elements, first of all we create an enum that controls which type of transition are we doing, for this project I’ve added 5 differents transitions. Two of them are a fade to black and a fade to white, these are the most basic ones to do but I did them to let understand the structure of the code with a simple example of a transition, the next three are more complicated ones but they will give you more ways to play with the scenes.
 
-Then, following the enum named which_animation we must create a class daughter of j1Module, this will be named j1Transitions and will contain the following elements: a constructor and destructor of the class, the main functions star and PostUpdate. Then we will have three specific functions added to be able to do all the effects and transitions, the most important is the bool Transition where we declare the main variable for each transition.
+Then, following the enum named which_animation we must create a class daughter of j1Module, this will be named j1Transitions and will contain the following elements: a constructor and destructor of the class, the main functions Start and PostUpdate. Then we will have three specific functions added to be able to do all the effects and transitions, the most important is the bool Transition where we call it we initiate the transition with the variables that we have in the function.  
 
 Inside this class we have another enum, this will determine in which ongoing step are we during the transition, these are entering(before the scene change) and exiting(after the change scene), the change of scene is done when we finish the entering step but is included in it.
+
 
 ### Transition.cpp
 
 Here we will create all the effects for the camera transition and to draw them to the screen, the most relevant part of this code is the two switch i have used to manage the creation of transitions in the postUpdate. The first one just switches between the two steps of the transition, it depends of the time we determine to change between the two steps and when the exiting step is done the next step is none(we don’t do nothing!!!).
 
-The next switch is where we have all the transitions processes, each one have different functionalities and they are done depending of the input the player give.
-
+The next switch is where we have all the transitions processes, each one have different functionalities and they are done depending of the input the player give. So this switch basically will do the blit of the different rects we have for the differents transitions.
 
 ### Scene1 and Scene2
 
-This two scenes work as any other in our last projects, just make sure to call the function transitions when the chosen input, called this function you will have to give the module you want to disable(the scene we have) and the module we’re enabling(the scene we are entering).
+This two scenes work as any other in our last projects, just make sure to call the function transitions when the chosen input, called this function you will have to give which transition are we doing, the module you want to disable(the scene we have) and the module we’re enabling(the scene we are entering) and the time it will take.
