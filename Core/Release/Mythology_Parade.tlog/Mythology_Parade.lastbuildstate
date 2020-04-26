@@ -1,2 +1,2 @@
-PlatformToolSet=v142:VCToolArchitecture=Native32Bit:VCToolsVersion=14.25.28610:TargetPlatformVersion=10.0.18362.0:
-Release|Win32|C:\Users\Miquel\Documents\GitHub\Mythology-Parade\Mythology_Parade_Engine\|
+#TargetFrameworkVersion=v4.0:PlatformToolSet=v141:EnableManagedIncrementalBuild=false:VCToolArchitecture=Native32Bit:WindowsTargetPlatformVersion=10.0.18362.0
+Release|Win32|C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\|
