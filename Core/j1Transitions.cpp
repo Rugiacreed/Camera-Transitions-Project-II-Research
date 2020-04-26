@@ -140,13 +140,14 @@ bool j1Transitions::PostUpdate()
 		if (ongoingstep == fade_step::entering) {
 			percentatge = timer.ReadSec() * (1 / (globaltime));
 			float normalized_x_positioncurtain1 = LerpValue(percentatge, -(int)App->win->GetWidth() / 2, 0);
+			float normalized_x_positioncurtain2 = LerpValue(percentatge, (int)App->win->GetWidth(), (int)App->win->GetWidth() / 2);
 
 			if (normalized_x_positioncurtain1 >= 0) {
 				CurtainTransRect.x = 0;
 			}
 			else CurtainTransRect.x = normalized_x_positioncurtain1;
 
-			float normalized_x_positioncurtain2 = LerpValue(percentatge, (int)App->win->GetWidth(), (int)App->win->GetWidth() / 2);
+			
 
 			if (normalized_x_positioncurtain2 <= (int)App->win->GetWidth() / 2) {
 				CurtainTransRect2.x = (int)App->win->GetWidth() / 2;

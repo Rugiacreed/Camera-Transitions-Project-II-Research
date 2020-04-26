@@ -9,44 +9,19 @@ j1Transitions.cpp(123): warning C4244: '+=': conversión de 'float' a 'int'; pos
 j1Transitions.cpp(127): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 j1Transitions.cpp(128): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 j1Transitions.cpp(142): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-j1Transitions.cpp(147): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-j1Transitions.cpp(149): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-j1Transitions.cpp(154): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-j1Transitions.cpp(159): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-j1Transitions.cpp(164): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-j1Transitions.cpp(166): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-j1Transitions.cpp(171): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-j1Transitions.cpp(208): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+j1Transitions.cpp(143): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+j1Transitions.cpp(148): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+j1Transitions.cpp(155): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+j1Transitions.cpp(160): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+j1Transitions.cpp(165): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+j1Transitions.cpp(167): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
+j1Transitions.cpp(172): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
 j1Transitions.cpp(209): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
-j1Transitions.cpp(227): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
-  j1Scene1.cpp
-  j1Main.cpp
-  j1App.cpp
-j1App.cpp(205): warning C4477: 'sprintf_s' : la cadena de formato '%lu' requiere un argumento de tipo 'unsigned long', pero el argumento variádico 6 tiene el tipo 'uint64'
-  j1App.cpp(205): note: considere el uso de ' %llu' en la cadena de formato
-  j1App.cpp(205): note: considere el uso de ' %I64u' en la cadena de formato
-  j1Audio.cpp
-  j1Input.cpp
-  j1Map.cpp
-j1Map.cpp(199): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-          with
-          [
-              TYPE=int
-          ]
-j1Map.cpp(200): warning C4244: '=': conversión de 'float' a 'TYPE'; posible pérdida de datos
-          with
-          [
-              TYPE=int
-          ]
-  j1PerfTimer.cpp
-  j1Scene2.cpp
-  j1Timer.cpp
-  p2Log.cpp
-  j1Render.cpp
-  j1Textures.cpp
-  j1Window.cpp
-  pugixml.cpp
+j1Transitions.cpp(210): warning C4244: '=': conversión de 'float' a 'int'; posible pérdida de datos
+j1Transitions.cpp(228): warning C4244: '=': conversión de 'int' a 'float'; posible pérdida de datos
   Generando código
-  All 792 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  0 of 792 functions ( 0.0%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Generación de código finalizada
   Mythology_Parade.vcxproj -> C:\Users\lenovo\Documents\GitHub\Camera-Transitions-Project-II-Research\Release\Mythology_Parade.exe
