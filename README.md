@@ -106,16 +106,22 @@ The new transition will be a wipe that acts like a curtain, and we will do this 
 
 The first step is just create a new type of transition. For that you will need to uncomment the curtain type of transition and create a new case in the enum in the Transitions.cpp.
 
+![Todo1](https://github.com/Rugiacreed/Camera-Transitions-Project-II-Research/blob/master/TODOS%20IMAGES/TODO1.png?raw=true)
+
+![Todo1-2](https://github.com/Rugiacreed/Camera-Transitions-Project-II-Research/blob/master/TODOS%20IMAGES/TODO1-2.png?raw=true)
 
 ### TODO 2
 
 This is easy. The second Todo just requires create two new rects that we will use in the next transition. Do it in the j1Transitions class.
 
+![Todo2](https://github.com/Rugiacreed/Camera-Transitions-Project-II-Research/blob/master/TODOS%20IMAGES/TODO2.png?raw=true)
 
 ### TODO 3
 
 To create the two rects required, we need to give them their values. Each rect will cover half of the screen. They will start from the two laterals of the screen.
 
+![Todo3](https://github.com/Rugiacreed/Camera-Transitions-Project-II-Research/blob/master/TODOS%20IMAGES/TODO3.png?raw=true)
+![Transition](https://github.com/Rugiacreed/Camera-Transitions-Project-II-Research/blob/master/TODOS%20IMAGES/TODO3%20EXAMPLE.png?raw=true)
 
 ### TODO 4
 
@@ -127,9 +133,10 @@ For the fifth Todo you just have to draw the two rects created before, you can u
 - SDL_SetRenderDrawColor
 - SDL_RenderFillRect
 
+![Todo 4-5](https://github.com/Rugiacreed/Camera-Transitions-Project-II-Research/blob/master/TODOS%20IMAGES/TODO4-5.png?raw=true)
 
 ### TODO 6
 
 This last Todo is a gift. Create and input to call the Transition function in Scene01. Remember to give all the needed variables!
 
-
+![Todo6](https://github.com/Rugiacreed/Camera-Transitions-Project-II-Research/blob/master/TODOS%20IMAGES/TODO6.png?raw=true)
