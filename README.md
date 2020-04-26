@@ -62,3 +62,26 @@ So starting thinking in our code, our objective will be do the change of scene a
 - https://en.wikipedia.org/wiki/Film_transition
 - https://news.avclub.com/edgar-wright-s-scott-pilgrim-is-a-master-class-in-scene-1798253073
 - http://www.davetech.co.uk/screentransitions
+
+## CODE
+
+For the code i decided to do it the most simple as possible, keeping it at the same time with high efficiency. For that i’ve used 3 main modules for the process of creation of the transitions in my project. These are two scenes named Scene1 and Scene2 and the transition module that will create the transitions at the same times it acts as a manager of them.
+
+### Transition.h
+
+In this module we will create two main elements, first of all we create an enum that controls which type of transition are we doing, for this project I’ve added 5 differents transitions. Two of them are a fade to black and a fade to white, these are the most basic ones to do but I did them to let understand the structure of the code with a simple example of a transition, the next three are more complicated ones but they will give you more ways to play with the scenes.
+
+Then, following the enum named which_animation we must create a class daughter of j1Module, this will be named j1Transitions and will contain the following elements: a constructor and destructor of the class, the main functions star and PostUpdate. Then we will have three specific functions added to be able to do all the effects and transitions, the most important is the bool Transition where we declare the main variable for each transition.
+
+Inside this class we have another enum, this will determine in which ongoing step are we during the transition, these are entering(before the scene change) and exiting(after the change scene), the change of scene is done when we finish the entering step but is included in it.
+
+### Transition.cpp
+
+Here we will create all the effects for the camera transition and to draw them to the screen, the most relevant part of this code is the two switch i have used to manage the creation of transitions in the postUpdate. The first one just switches between the two steps of the transition, it depends of the time we determine to change between the two steps and when the exiting step is done the next step is none(we don’t do nothing!!!).
+
+The next switch is where we have all the transitions processes, each one have different functionalities and they are done depending of the input the player give.
+
+
+### Scene1 and Scene2
+
+This two scenes work as any other in our last projects, just make sure to call the function transitions when the chosen input, called this function you will have to give the module you want to disable(the scene we have) and the module we’re enabling(the scene we are entering).
