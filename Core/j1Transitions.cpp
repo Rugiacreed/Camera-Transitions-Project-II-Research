@@ -15,8 +15,7 @@
 j1Transitions::j1Transitions()
 {
 	screen = { 0, 0, 1280,720 };
-	WipeRect = { -1280, 0, 1280,720 };
-	
+	WipeTransRect = { -1280, 0, 1280,720 };
 	
 }
 
@@ -27,30 +26,30 @@ j1Transitions::~j1Transitions()
 bool j1Transitions::Start()
 {
 	SDL_SetRenderDrawBlendMode(App->render->renderer, SDL_BLENDMODE_BLEND);
-	CurtainRect = { -(int)App->win->GetWidth() / 2, 0, (int)App->win->GetWidth() / 2,720 };
-	CurtainRect2 = { (int)App->win->GetWidth(), 0, (int)App->win->GetWidth() / 2,720 };
+	CurtainTransRect = { -(int)App->win->GetWidth() / 2, 0, (int)App->win->GetWidth() / 2,720 };
+	CurtainTransRect2 = { (int)App->win->GetWidth(), 0, (int)App->win->GetWidth() / 2,720 };
 	return true;
 }
 
 // Update: draw background
 bool j1Transitions::PostUpdate()
 {
-	if (current_step == fade_step::none)
+	if (ongoingstep == fade_step::none)
 		return true;
 
-	float normalized = MIN(1.0f, (float)timer.ReadSec() / (float)total_time);
+	float normalized = MIN(1.0f, (float)timer.ReadSec() / (float)globaltime);
 
-	switch (current_step)
+	switch (ongoingstep)
 	{
 	case fade_step::entering:
 	{
-		if (timer.ReadSec() >= total_time)
+		if (timer.ReadSec() >= globaltime)
 		{
 			module_off->Disable();
 			module_on->Enable();
 			
 			timer.Start();
-			current_step = fade_step::exiting;
+			ongoingstep = fade_step::exiting;
 		}
 	} break;
 
@@ -58,57 +57,64 @@ bool j1Transitions::PostUpdate()
 	{
 		normalized = 1.0f - normalized;
 
-		if (timer.ReadSec() >= total_time)
-			current_step = fade_step::none;
+		if (timer.ReadSec() >= globaltime)
+			ongoingstep = fade_step::none;
 	} break;
 	}
 
+	//the following switch decides which animation we're doing
 	switch (w_anim) {
+
+		//FADE TO BLACK TRANSITION
 	case(which_animation::fade_to_black):
 		// Finally render the black square with alpha on the screen
 		SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, (Uint8)(normalized * 255.0f));
 		SDL_RenderFillRect(App->render->renderer, &screen);
 		break;
 
+		//FADE TO WHITE TRANSITION
 	case(which_animation::fade_to_white):
 		// Finally render the white square with alpha on the screen
 		SDL_SetRenderDrawColor(App->render->renderer, 255, 255, 255, (Uint8)(normalized * 255.0f));
 		SDL_RenderFillRect(App->render->renderer, &screen);
 		break;
 
+		//WIPE TRANSITION
 	case (which_animation::wipe):
-		if (current_step == fade_step::entering) {
-			percent = timer.ReadSec() * (1 / (total_time));
-			float normalized_x_position = LerpValue(percent, -(int)App->win->GetWidth(), 0);
+		if (ongoingstep == fade_step::entering) {
+			percentatge = timer.ReadSec() * (1 / (globaltime));
+			float normalized_x_position = LerpValue(percentatge, -(int)App->win->GetWidth(), 0);
 
 			if (normalized_x_position >= 0) {
-				WipeRect.x = 0;
+				WipeTransRect.x = 0;
 			}
-			else WipeRect.x = normalized_x_position;
+			else WipeTransRect.x = normalized_x_position;
 
 			
 		}
-		else if (current_step== fade_step::exiting)
+		else if (ongoingstep== fade_step::exiting)
 		{
-			percent = timer.ReadSec() * (1 / total_time);
-			float normalized_x_position2 = LerpValue(percent, 0, -1280);
+			percentatge = timer.ReadSec() * (1 / globaltime);
+			float normalized_x_position2 = LerpValue(percentatge, 0, -1280);
 
 			if (normalized_x_position2 <= -1280) {
-				WipeRect.x = -1280;
-			}else WipeRect.x = normalized_x_position2;
+				WipeTransRect.x = -1280;
+			}else WipeTransRect.x = normalized_x_position2;
 		}
+		//Finally we draw the two rect that will make the wipe
 		SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, 255);
-		SDL_RenderFillRect(App->render->renderer, &WipeRect);
+		SDL_RenderFillRect(App->render->renderer, &WipeTransRect);
 		break;
 
+		//ZOOM TRANSITION
 	case (which_animation::zoom):
 
-		if (current_step == fade_step::entering) {
-			percent2 = timer.ReadSec() * (1 / total_time);
-			float normalized_scale = LerpValue(percent2, normal_scale, target_scale);
+		if (ongoingstep == fade_step::entering) {
+			percentatge2 = timer.ReadSec() * (1 / globaltime);
+			float normalized_scale = LerpValue(percentatge2, normal_scale, target_scale);
 
-			float next_width = LerpValue(percent2, start_width, final_width);
-			float next_height = LerpValue(percent2, start_height, final_height);
+			float next_width = LerpValue(percentatge2, original_width, final_width);
+			float next_height = LerpValue(percentatge2, original_height, final_height);
 
 			float step_x = next_width - current_width;
 			float step_y = next_height - current_height;
@@ -122,51 +128,54 @@ bool j1Transitions::PostUpdate()
 			current_width = next_width;
 		}
 
-		if (current_step == fade_step::exiting) {
+		if (ongoingstep == fade_step::exiting) {
+			//once we have done the zoom, we set the original scale for the next scene
 			SDL_RenderSetScale(App->render->renderer, 1, 1);
 			
 		}
 		break;
 
+		//CURTAIN TRANSITION
 	case (which_animation::curtain):
-		if (current_step == fade_step::entering) {
-			percent = timer.ReadSec() * (1 / (total_time));
-			float normalized_x_positioncurtain1 = LerpValue(percent, -(int)App->win->GetWidth() / 2, 0);
+		if (ongoingstep == fade_step::entering) {
+			percentatge = timer.ReadSec() * (1 / (globaltime));
+			float normalized_x_positioncurtain1 = LerpValue(percentatge, -(int)App->win->GetWidth() / 2, 0);
 
 			if (normalized_x_positioncurtain1 >= 0) {
-				CurtainRect.x = 0;
+				CurtainTransRect.x = 0;
 			}
-			else CurtainRect.x = normalized_x_positioncurtain1;
+			else CurtainTransRect.x = normalized_x_positioncurtain1;
 
-			float normalized_x_positioncurtain2 = LerpValue(percent, (int)App->win->GetWidth(), (int)App->win->GetWidth() / 2);
+			float normalized_x_positioncurtain2 = LerpValue(percentatge, (int)App->win->GetWidth(), (int)App->win->GetWidth() / 2);
 
 			if (normalized_x_positioncurtain2 <= (int)App->win->GetWidth() / 2) {
-				CurtainRect2.x = (int)App->win->GetWidth() / 2;
+				CurtainTransRect2.x = (int)App->win->GetWidth() / 2;
 			}
-			else CurtainRect2.x = normalized_x_positioncurtain2;
+			else CurtainTransRect2.x = normalized_x_positioncurtain2;
 		}
-		else if (current_step == fade_step::exiting)
+		else if (ongoingstep == fade_step::exiting)
 		{
-			percent = timer.ReadSec() * (1 / (total_time));
-			float normalized_x_positioncurtain1 = LerpValue(percent, 0, -(int)App->win->GetWidth() / 2);
+			percentatge = timer.ReadSec() * (1 / (globaltime));
+			float normalized_x_positioncurtain1 = LerpValue(percentatge, 0, -(int)App->win->GetWidth() / 2);
 
 			if (normalized_x_positioncurtain1 <= -(int)App->win->GetWidth() / 2) {
-				CurtainRect.x = -(int)App->win->GetWidth() / 2;
+				CurtainTransRect.x = -(int)App->win->GetWidth() / 2;
 			}
-			else CurtainRect.x = normalized_x_positioncurtain1;
+			else CurtainTransRect.x = normalized_x_positioncurtain1;
 
-			float normalized_x_positioncurtain2 = LerpValue(percent, (int)App->win->GetWidth() / 2, (int)App->win->GetWidth());
+			float normalized_x_positioncurtain2 = LerpValue(percentatge, (int)App->win->GetWidth() / 2, (int)App->win->GetWidth());
 
 			if (normalized_x_positioncurtain2 >= (int)App->win->GetWidth()) {
-				CurtainRect2.x = (int)App->win->GetWidth();
+				CurtainTransRect2.x = (int)App->win->GetWidth();
 			}
-			else CurtainRect2.x = normalized_x_positioncurtain2;
+			else CurtainTransRect2.x = normalized_x_positioncurtain2;
 		}
+		//Finally we draw the two rects that will make the curtains
 		SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, 255);
-		SDL_RenderFillRect(App->render->renderer, &CurtainRect);
+		SDL_RenderFillRect(App->render->renderer, &CurtainTransRect);
 
 		SDL_SetRenderDrawColor(App->render->renderer, 0, 0, 0, 255);
-		SDL_RenderFillRect(App->render->renderer, &CurtainRect2);
+		SDL_RenderFillRect(App->render->renderer, &CurtainTransRect2);
 		break;
 	
 
@@ -182,20 +191,20 @@ bool j1Transitions::Transition(which_animation type, j1Module* module_offp, j1Mo
 
 	w_anim = type;
 
-	if (current_step == fade_step::none)
+	if (ongoingstep == fade_step::none)
 	{
 		
 		module_off = module_offp;
 		module_on = module_onp;
-		current_step = fade_step::entering;
+		ongoingstep = fade_step::entering;
 		//start_time = SDL_GetTicks();
-		total_time = time;
+		globaltime = time;
 		timer.Start();
 		
 		//for zoom
 		target_scale = target_scalep;
-		start_width = App->render->camera.w;
-		start_height = App->render->camera.h;
+		original_width = App->render->camera.w;
+		original_height = App->render->camera.h;
 		final_width = App->render->camera.w / target_scalep;
 		final_height = App->render->camera.h / target_scalep;
 		current_width = App->render->camera.w;
