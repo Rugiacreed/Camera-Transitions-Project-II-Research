@@ -61,3 +61,4 @@ So starting thinking in our code, our objective will be do the change of scene a
 - https://www.youtube.com/watch?v=fKgvno6k-og
 - https://en.wikipedia.org/wiki/Film_transition
 - https://news.avclub.com/edgar-wright-s-scott-pilgrim-is-a-master-class-in-scene-1798253073
+- http://www.davetech.co.uk/screentransitions
