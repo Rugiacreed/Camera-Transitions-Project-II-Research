@@ -1,5 +1,6 @@
 # Camera-Transitions-Project-II-Research
 I'm Roger Pérez Romera student from CITM UPC Terrassa from the Development and Design career. 
+This is my link to my github repository from this project: https://github.com/Rugiacreed/Camera-Transitions-Project-II-Research.
 
 # CAMERA TRANSITIONS
 
