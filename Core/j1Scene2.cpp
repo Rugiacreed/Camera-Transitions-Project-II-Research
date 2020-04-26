@@ -35,6 +35,9 @@ bool j1Scene2::PostUpdate()
 	else if (App->input->GetKey(SDL_SCANCODE_2) == KEY_DOWN) {
 		App->transitions->Transition(which_animation::wipe, (j1Module*)App->scene2, (j1Module*)App->scene1, 2);
 	}
+	else if (App->input->GetKey(SDL_SCANCODE_4) == KEY_DOWN) {
+		App->transitions->Transition(which_animation::curtain, (j1Module*)App->scene2, (j1Module*)App->scene1, 2);
+	}
 
 	SDL_Rect sec2 = { 0, 0, 1280, 720 };
 	App->render->Blit(debug_tex, 0, 0, &sec2, 0.0f, 0);
