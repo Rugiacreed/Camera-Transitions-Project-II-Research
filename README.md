@@ -96,3 +96,40 @@ The next switch is where we have all the transitions processes, each one have di
 This two scenes work as any other in our last projects, just make sure to call the function transitions when the chosen input, called this function you will have to give which transition are we doing, the module you want to disable(the scene we have) and the module we’re enabling(the scene we are entering) and the time it will take.
 
 ![Scene1](https://github.com/Rugiacreed/Camera-Transitions-Project-II-Research/blob/master/Web%20Images/Scene1.PNG?raw=true)
+
+## TODOS
+
+We will create a new transition, this already exists in the solution, but now is your turn to do it.
+The new transition will be a wipe that acts like a curtain, and we will do this in six steps.
+
+### TODO 1
+
+The first step is just create a new type of transition. For that you will need to uncomment the curtain type of transition and create a new case in the enum in the Transitions.cpp.
+
+
+### TODO 2
+
+This is easy. The second Todo just requires create two new rects that we will use in the next transition. Do it in the j1Transitions class.
+
+
+### TODO 3
+
+To create the two rects required, we need to give them their values. Each rect will cover half of the screen. They will start from the two laterals of the screen.
+
+
+### TODO 4
+
+This Todo is more complicated, you already have two variables that will help you, uncomment them. You must create inside the case and in the step “entering”  the way the rects will be drawn. See some hints in the image below TODO 5.
+
+### TODO 5
+
+For the fifth Todo you just have to draw the two rects created before, you can use functions:
+- SDL_SetRenderDrawColor
+- SDL_RenderFillRect
+
+
+### TODO 6
+
+This last Todo is a gift. Create and input to call the Transition function in Scene01. Remember to give all the needed variables!
+
+
